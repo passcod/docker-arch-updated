@@ -3,7 +3,7 @@
 FROM base/archlinux
 MAINTAINER Félix Saparelli me@passcod.name
 
-RUN curl -# -o /etc/pacman.d/mirrorlist https://www.archlinux.org/mirrorlist/all/
+RUN curl -# https://www.archlinux.org/mirrorlist/all/ | cut -c2- > /etc/pacman.d/mirrorlist
 RUN pacman -Sy --noprogressbar --noconfirm &&\
   pacman -S pacman --noprogressbar --noconfirm &&\
   pacman-db-upgrade &&\
